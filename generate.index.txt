@@ -1,0 +1,1 @@
+STAR  --runThreadN 32   --runMode genomeGenerate --genomeDir STAR.index  --genomeFastaFiles GCA_000001405.15_GRCh38_no_alt_analysis_set.fna --sjdbGTFfile gencode.v23.annotation.gtf 
