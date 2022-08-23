@@ -23,20 +23,20 @@ my $is_paired_end;
 
 # gzipped fastq files?
 if(-e "fastq/${srr_id}_1.fastq.gz" || -e "fastq/${srr_id}.fastq.gz"){
-    $is_gz = TRUE;
+    $is_gz = 1;
 }else{
-    $is_gz = FALSE;
+    $is_gz = 0;
 }
 
 # paired-end fastq files?
 if(-e "fastq/${srr_id}_2.fastq" || -e "fastq/${srr_id}_2.fastq.gz"){
-    $is_paired_end = TRUE;
+    $is_paired_end = 1;
 }else{
-    $is_paired_end = FALSE;
+    $is_paired_end = 0;
 }
 
-
-if($is_paired_end == TRUE){ # paired_end
+my $file_str;
+if($is_paired_end == 1){ # paired_end
     if($is_gz){
         $file_str = " --readFilesIn fastq/${srr_id}_1.fastq.gz  fastq/${srr_id}_2.fastq.gz --readFilesCommand zcat ";
     }else{
