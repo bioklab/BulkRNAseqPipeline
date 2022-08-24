@@ -26,6 +26,5 @@ foreach(i = url.vec) %dopar% {
     }else{
         download.cmd <- sprintf("wget -P %s %s ",output.path, i)
     }
-
     system(download.cmd, wait = TRUE, intern = TRUE)
 }
