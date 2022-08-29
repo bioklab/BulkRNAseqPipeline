@@ -24,7 +24,7 @@ foreach(i = url.vec) %dopar% {
     if(grepl(download.option, pattern ='aspera')){
         download.cmd <- sprintf("ascp -QT -l 300m -P 33001 -i /home/liuke/miniconda3/envs/bioklab/etc/asperaweb_id_dsa.openssh era-fasp@%s %s",i, output.path)
     }else{
-        download.cmd <- sprintf("wget -P %s %s ",output.path, i)
+        download.cmd <- sprintf("wget -P %s ftp://%s ",output.path, i)
     }
     system(download.cmd, wait = TRUE, intern = TRUE)
 }
